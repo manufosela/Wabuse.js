@@ -6,11 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["witux", "toolkit", "ux", "ssg", "web-components", "javascript", "class"],
   "author": "manufosela",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/manufosela/witux/issues"
   },
-  "homepage": ""
+  "homepage": "https://github.com/manufosela/witux"
 }
