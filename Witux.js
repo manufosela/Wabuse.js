@@ -17,17 +17,6 @@ class WituxClass {
     window.onload = this.getTemplates.bind(this);
   }
 
-  prerender(htmlObj) {
-    const htmlStrings = htmlObj.strings;
-    const htmlValues = htmlObj.values;
-    let htmlToRender = '';
-    htmlStrings.forEach((htmlString, index) => {
-      htmlToRender += htmlString;
-      htmlToRender += htmlValues[index] || '';
-    });
-    return htmlToRender;
-  }
-
   // eslint-disable-next-line class-methods-use-this
   insertContent(templateElement, responses) {
     const fragment = document.createDocumentFragment();
@@ -119,3 +108,14 @@ class WituxClass {
 }
 
 export const Witux = new WituxClass();
+
+export function prerender(htmlObj) {
+  const htmlStrings = htmlObj.strings;
+  const htmlValues = htmlObj.values;
+  let htmlToRender = '';
+  htmlStrings.forEach((htmlString, index) => {
+    htmlToRender += htmlString;
+    htmlToRender += htmlValues[index] || '';
+  });
+  return htmlToRender;
+}
