@@ -1,6 +1,6 @@
 {
   "name": "witux",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Witux javascript Class",
   "main": "Witux.js",
   "scripts": {
