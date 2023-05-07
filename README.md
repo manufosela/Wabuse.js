@@ -1,2 +1,2 @@
-# witux
-Witux javascript Class to develop SSG Witux sites
+# wabuse
+Wabuse javascript Class to develop SSG Wabuse sites

@@ -1,16 +1,16 @@
 {
-  "name": "witux",
+  "name": "@wabuse/wabuse",
   "version": "1.0.1",
-  "description": "Witux javascript Class",
-  "main": "Witux.js",
+  "description": "Wabuse javascript Class",
+  "main": "Wabuse.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["witux", "toolkit", "ux", "ssg", "web-components", "javascript", "class"],
+  "keywords": ["wabuse", "toolkit", "ux", "ssg", "web-components", "javascript", "class"],
   "author": "manufosela",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/manufosela/witux/issues"
+    "url": "https://github.com/manufosela/wabuse/issues"
   },
-  "homepage": "https://github.com/manufosela/witux"
+  "homepage": "https://github.com/manufosela/wabuse"
 }

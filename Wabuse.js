@@ -10,9 +10,9 @@ String.prototype.interpolate = function (params = {}) {
   return new Function(...keys, `return \`${this}\`;`)(...vals);
 };
 
-window.WituxDATA = window.WituxDATA || {};
+window.WabuseDATA = window.WabuseDATA || {};
 
-class WituxClass {
+class WabuseClass {
   constructor() {
     window.onload = this.getTemplates.bind(this);
   }
@@ -33,9 +33,9 @@ class WituxClass {
   }
 
   getTemplates() {
-    this.templates = [...document.querySelectorAll('template[data-witux]')];
+    this.templates = [...document.querySelectorAll('template[data-wabuse]')];
     this.templates.forEach(async (template) => {
-      const jsonData = window.WituxDATA[template.dataset.json] || {};
+      const jsonData = window.WabuseDATA[template.dataset.json] || {};
       // const jsonVarName = template.dataset.json || '';
       const tplSrc = template.dataset.src || '';
       const templateElement = document.querySelector(`template[data-src="${tplSrc}"]`);
@@ -52,7 +52,7 @@ class WituxClass {
           this.insertContent(templateElement, response);
         }
       } else {
-        console.info('INFO: template width "data-witux" attribute not found', template);
+        console.info('INFO: template width "data-wabuse" attribute not found', template);
       }
     });
   }
@@ -107,7 +107,7 @@ class WituxClass {
   }
 }
 
-export const Witux = new WituxClass();
+export const Wabuse = new WabuseClass();
 
 export function prerender(htmlObj) {
   const htmlStrings = htmlObj.strings;
