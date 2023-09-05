@@ -1,6 +1,6 @@
 // Copyright 2022 manufosela.
-// SPDX-License-Identifier: MIT
-// WitUX - Webcomponents Instructive Toolkit UX
+// SPDX-License-Identifier: Apache-2.0
+// Wabuse- Webcomponents Instructive Toolkit UX
 
 // eslint-disable-next-line no-extend-native
 String.prototype.interpolate = function (params = {}) {
@@ -14,8 +14,51 @@ window.WabuseDATA = window.WabuseDATA || {};
 
 class WabuseClass {
   constructor() {
-    window.onload = this.getTemplates.bind(this);
+    window.onload = this.init.bind(this);
+
   }
+
+  init() {
+    this.getTemplates();
+    this.getMetas();
+  }
+
+  insertHeadContent(metaElement, response) {
+    const fragment = document.createDocumentFragment();
+    response.forEach((node) => {
+      fragment.appendChild(node);
+    });
+    metaElement.replaceWith(fragment);
+  }
+
+  insertMeta(url) {
+    return new Promise((resolve) => {
+      const iframe = document.createElement('iframe');
+      iframe.width = 0;
+      iframe.height = 0;
+      iframe.src = `${url}`;
+      document.body.appendChild(iframe);
+      iframe.onload = () => {
+        const ifrDocument = iframe.contentDocument || iframe.contentWindow.document;
+        const ifrHead = ifrDocument.querySelector('head');
+        const childnodesTemplate = ifrHead.childNodes;
+
+        iframe.remove();
+        resolve(childnodesTemplate);
+      };
+    });
+  }
+
+  getMetas() {
+    const metas = [...document.querySelectorAll('meta[name="wabuse"]')];
+    metas.forEach(async (metaElement) => {
+      const metaContent = metaElement.content;
+      const response = await this.insertMeta(metaContent);
+      this.insertHeadContent(metaElement, response);
+    });
+  }
+
+  /**********************************************/
 
   // eslint-disable-next-line class-methods-use-this
   insertContent(templateElement, responses) {
@@ -102,7 +145,7 @@ class WabuseClass {
         this.key = data[key];
       }
     });
-    tplElement.innerHTML = ((data)) ? tplRaw.interpolate(data) : tplRaw;
+    tplElement.innerHTML = (Object.keys(data).length > 0) ? tplRaw.interpolate(data) : tplRaw;
     return tplElement;
   }
 }
